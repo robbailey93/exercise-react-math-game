@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ProgressBar from './Components/ProgressBar';
+import Overlay from './Components/Overlay';
 
 function App() {
+  const [score, setScore] = React.useState(0)
+  const [mistakes, setMistakes] = React.useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="main-ui">
+        <p className="problem"></p>
+
+        <form action="" className="answer-form">
+          <input type="text" className="answer-field" autoComplete="off" />
+          <button>Submit</button>
+        </form>
+
+        <p className="status">You need {10 - score} more points, and are allowed to make {3 - mistakes} more mistakes.</p>
+        <ProgressBar />
+      </div>
+      <Overlay/>
+    </>
   );
 }
 
